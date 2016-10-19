@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Retrofit</string>
+    <string name="request_text">请求文本</string>
+    <string name="request_image">请求图片</string>
+</resources>
