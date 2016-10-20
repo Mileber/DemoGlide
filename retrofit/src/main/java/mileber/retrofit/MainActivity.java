@@ -4,7 +4,10 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -12,12 +15,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
-
 public class MainActivity extends AppCompatActivity {
 
     private Handler handler = new Handler();
     private TextView textView;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +31,30 @@ public class MainActivity extends AppCompatActivity {
 
     private  void initView(){
         textView = (TextView) findViewById(R.id.tv_response);
+        editText = (EditText) findViewById(R.id.editText);
     }
 
     public void requestText(View view){
+
+        String city = editText.getText().toString();
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:// https://api.heweather.com/")
+                .baseUrl("https://api.heweather.com/")
                 .build();
 
-        BaiduService baiduService = retrofit.create(BaiduService.class);
-        Call<ResponseBody> call = baiduService.getResponse("CN101020100");
+        WeatherService weatherService = retrofit.create(WeatherService.class);
+        Call<ResponseBody> call = weatherService.getResponse(city);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, final Response<ResponseBody> response) {
-                System.out.println(response.body().toString());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        textView.setText(response.body().toString());
+                        try {
+                            textView.setText(response.body().string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }

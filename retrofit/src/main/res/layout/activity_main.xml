@@ -8,32 +8,38 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="mileber.retrofit.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linear_btn"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true">
+        android:layout_height="match_parent">
 
-        <Button
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/request_text"
-            android:layout_weight="1"
-            android:onClick="requestText"/>
+            android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/request_image"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/et_text"/>
 
-    <TextView
-        android:id="@+id/tv_response"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/linear_btn"
-        android:text="Hello World!" />
+            <Button
+                android:id="@+id/btn_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/request_text"
+                android:layout_below="@id/editText"
+                android:onClick="requestText"/>
+
+            <TextView
+                android:id="@+id/tv_response"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_request"
+                android:layout_marginTop="16dp"
+                android:text="Hello World!" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
