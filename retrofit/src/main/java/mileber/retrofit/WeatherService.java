@@ -13,5 +13,6 @@ import retrofit2.http.Query;
 public interface WeatherService {
     @GET("x3/weather?key=HefengKey")
     Call<ResponseBody> getResponse(@Query("city") String city);
+
+    //TODO:关于POST，HTTP等相关注解的内容
 }
-                                                                                         

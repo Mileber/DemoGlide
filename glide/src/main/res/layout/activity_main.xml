@@ -14,14 +14,20 @@
         android:id="@+id/btnLoadImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="loadImage"
         android:text="@string/loadImage"/>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageViewLocal"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_below="@id/btnLoadImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_margin="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewNet"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/imageViewLocal"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
