@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Gson</string>
+    <string name="simple_object">Simple Object</string>
+    <string name="generic_object">Generic Object</string>
+</resources>

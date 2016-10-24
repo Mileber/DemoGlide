@@ -1,1 +1,1 @@
-include ':app', ':retrofit', ':glide', ':glide'
+include ':app', ':retrofit', ':glide', ':glide', ':gson', ':eventbus'
